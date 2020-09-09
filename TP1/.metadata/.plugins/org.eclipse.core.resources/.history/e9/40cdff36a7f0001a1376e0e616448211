@@ -1,0 +1,53 @@
+/*
+ ============================================================================
+ Name        : Calculadora.c
+ Author      : Carolina Yokoyama
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float pedirNumero(char texto[]); //Funcion que pida un numero
+//int validarNumero(float numero); //Funcion que valide un numero
+
+int main(void) {
+
+	setbuf(stdout, NULL);
+
+	float a;
+	float b;
+	int opcion;
+
+	printf("Bienvenido \n");
+	printf("MENU DE OPCIONES: \n");
+	printf("1. Ingresar el 1er operando \n");
+	printf("2. Ingresar el 2do operando \n");
+	printf("3. Calcular todas las operaciones \n");
+	printf("4. Informar resultados \n");
+	printf("5. Salir \n");
+	scanf("%d", &opcion);
+
+
+
+	a = pedirNumero("\nPor favor, ingrese el primer operando: ");
+	b = pedirNumero("\nPor favor, ingrese el segundo operando: ");
+
+	printf("\nUsted ingreso %.2f y %.2f ", a, b);
+
+
+
+	return EXIT_SUCCESS;
+}
+
+float pedirNumero(char texto[]) {
+	float numero;
+	printf(texto);
+	scanf("%f", &numero);
+	return numero;
+
+}
+

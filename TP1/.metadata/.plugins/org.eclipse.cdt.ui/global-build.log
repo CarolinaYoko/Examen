@@ -1,0 +1,138 @@
+18:53:44 **** Clean-only build of configuration Debug for project Calculadora ****
+rm -rf src/Calculadora.o Calculadora.exe src/Calculadora.d 
+19:07:37 **** Rebuild of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+Info: Nothing to build for Calculadora
+19:16:33 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Calculadora.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+19:17:04 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+Info: Nothing to build for Calculadora
+19:49:33 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+Info: Nothing to build for Calculadora
+Info: Nothing to build for Calculadora
+20:31:50 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+..\src\Calculadora.c: In function 'main':
+..\src\Calculadora.c:69:8: warning: implicit declaration of function 'isNaN' [-Wimplicit-function-declaration]
+   69 |     if(isNaN(a)){
+      |        ^~~~~
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: src\Calculadora.o: in function `main':
+C:\Users\Carolina\Desktop\Eclipse\TP1\Calculadora\Debug/../src/Calculadora.c:69: undefined reference to `isNaN'
+collect2.exe: error: ld returned 1 exit status
+20:32:46 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+20:38:28 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+20:42:51 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+20:48:20 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Calculadora.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+20:48:37 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+20:53:18 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+22:14:23 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+22:14:54 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" 
+16:03:50 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\misFunciones.o" "..\\src\\misFunciones.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+16:28:04 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\misFunciones.o" "..\\src\\misFunciones.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+16:49:14 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\misFunciones.o" "..\\src\\misFunciones.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+16:58:14 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+..\src\Calculadora.c: In function 'main':
+..\src\Calculadora.c:94:21: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+   94 |     printf("\n A = %d \n",a);
+      |                    ~^     ~
+      |                     |     |
+      |                     int   double
+      |                    %f
+..\src\Calculadora.c:95:21: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+   95 |     printf("\n B = %d \n",b);
+      |                    ~^     ~
+      |                     |     |
+      |                     int   double
+      |                    %f
+..\src\Calculadora.c:115:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+  115 |      printf("\nError. %d no es un numero natural o cero\n", a);
+      |                       ~^                                    ~
+      |                        |                                    |
+      |                        int                                  double
+      |                       %f
+..\src\Calculadora.c:122:24: warning: format '%d' expects argument of type 'int', but argument 2 has type 'double' [-Wformat=]
+  122 |      printf("\nError. %d no es un numero natural o cero\n", b);
+      |                       ~^                                    ~
+      |                        |                                    |
+      |                        int                                  double
+      |                       %f
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+16:59:47 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+17:10:23 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\misFunciones.o" "..\\src\\misFunciones.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+c:/mingw/bin/../lib/gcc/mingw32/9.2.0/../../../../mingw32/bin/ld.exe: cannot open output file Calculadora.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+17:10:41 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+17:13:46 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\misFunciones.o" "..\\src\\misFunciones.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+17:14:27 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 
+17:38:51 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\misFunciones.o" "..\\src\\misFunciones.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\misFunciones.o" 

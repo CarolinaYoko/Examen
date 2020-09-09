@@ -1,0 +1,230 @@
+/*
+ ============================================================================
+ Name        : Calculadora.c
+ Author      : Carolina Yokoyama
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+float pedirNumero(char texto[]); //Funcion que pida un numero
+float sumarNumeros(float num1, float num2);
+float restarNumeros(float num1, float num2);
+float dividirNumeros(float num1, float num2);
+float multiplicarNumeros(float num1, float num2);
+int factorial(int num);
+int validarNatural(float num);
+
+
+int main(void) {
+
+	setbuf(stdout, NULL);
+
+	float a;
+	float b;
+	float suma;
+	float resta;
+	float producto;
+	float cociente;
+	int factorial1;
+	int factorial2;
+	int opcion;
+	char respuesta;
+	int flagOp1 = 0;
+	int flagOp2 = 0;
+	int flagOp3 = 0;
+
+	do {
+
+		printf("  ¡Bienvenido! \n");
+		printf("\n MENU DE OPCIONES: \n\n");
+		printf("1. Ingresar el 1er operando (A = %.2f)\n", a);
+		printf("2. Ingresar el 2do operando (B = %.2f) \n", b);
+		printf("3. Calcular todas las operaciones \n");
+		printf("4. Informar resultados \n");
+		printf("5. Salir \n");
+		printf("\nIngrese una opcion: ");
+		scanf("%d", &opcion);
+
+		while (opcion < 1 || opcion > 5) {
+			printf("\nLa opcion ingresada no es valida. Ingrese una opcion: ");
+			scanf("%d", &opcion);
+		}
+
+		switch (opcion) {
+		case 1:
+			system("cls");
+			if (flagOp1 == 0) {
+				flagOp1 = 1;
+				a = pedirNumero("\nPor favor, ingrese el primer operando: ");
+
+				while (!isdigit(a)) {
+					a = pedirNumero("\nIngrese un numero valido: ");
+				}
+
+				system("pause");
+			}
+			break;
+		case 2:
+			system("cls");
+			if (flagOp1 == 1) {
+				flagOp2 = 1;
+				b = pedirNumero("\nPor favor, ingrese el segundo operando: ");
+				while (!isdigit(b)) {
+					b = pedirNumero("\nIngrese un numero valido: ");
+				}
+			} else {
+				printf("Debe ingresar el 1er operando \n");
+			}
+			system("pause");
+			break;
+		case 3:
+			system("cls");
+
+			if (flagOp2 == 1) {
+				flagOp3 = 1;
+				suma = sumarNumeros(a, b);
+				resta = restarNumeros(a, b);
+				producto = multiplicarNumeros(a, b);
+				cociente = dividirNumeros(a, b);
+				factorial1 = factorial(a);
+				factorial2 = factorial(b);
+			} else if (flagOp1 == 0 && flagOp2 == 0) {
+				printf("Debe ingresar los operando antes de calcular \n");
+			} else {
+				printf("Falta ingresar el primer operando \n");
+			}
+			system("pause");
+			break;
+		case 4:
+			system("cls");
+
+			if (flagOp3 == 1) {
+				// SUMA
+				printf("El resultado de A+B es = %.2f \n", suma);
+
+				//RESTA
+				printf("El resultado de A-B es = %.2f \n", resta);
+
+				//DIVISION
+				if (b == 0) {
+					printf("Error. No es posible la division por cero \n");
+				} else {
+					printf("El resultado de A/B es = %.2f \n", cociente);
+				}
+
+				//MULTIPLICACION
+				printf("El resultado de A*B es = %.2f \n", producto);
+
+				//FACTORIAL DE A
+				if (validarNatural(a)) {
+					printf(
+							"Error. El factorial esta definido para numeros naturales mas el 0 \n");
+				} else {
+					printf("El factorial de A es: %d \n", factorial1);
+				}
+
+				// FACTORIAL DE B
+				if (validarNatural(b)) {
+					printf(
+							"Error. El factorial esta definido para numeros naturales mas el 0 \n");
+				} else {
+					printf("El factorial de B es: %d \n", factorial2);
+				}
+
+				flagOp1 = 0;
+				flagOp2 = 0;
+				flagOp3 = 0;
+			}
+
+			else if (flagOp1 == 0 || flagOp2 == 0) {
+				printf(
+						"Primero debe ingresar ambos operando antes de informar el resultado \n");
+			} else if (flagOp3 == 0) {
+				printf(
+						"Primero debe calcular las operaciones antes de infromarlos \n");
+
+			}
+			system("pause");
+			break;
+		case 5:
+			system("cls");
+			printf("\n ¿Desea salir? s/n ");
+			fflush(stdin);
+			scanf("%c", &respuesta);
+			if (respuesta == 's') {
+				break;
+			}
+		}
+		system("cls");
+
+	} while (respuesta != 's');
+
+	return EXIT_SUCCESS;
+}
+
+float pedirNumero(char texto[]) {
+	float numero;
+	printf(texto);
+	scanf("%f", &numero);
+	return numero;
+
+}
+
+float sumarNumeros(float num1, float num2) {
+	float suma;
+	suma = num1 + num2;
+	return suma;
+}
+
+float restarNumeros(float num1, float num2) {
+	float resta;
+	resta = num1 - num2;
+	return resta;
+}
+
+float dividirNumeros(float num1, float num2) {
+	float cociente;
+	cociente = num1 / num2;
+	return cociente;
+}
+
+float multiplicarNumeros(float num1, float num2) {
+	float producto;
+	producto = num1 * num2;
+	return producto;
+}
+
+int validarNatural(float num) {
+	int parteEntera;
+	float decimal;
+	int natural = 0;
+
+	parteEntera = num;
+	decimal = num - parteEntera;
+
+	if (decimal != 0) {
+		natural = 1;
+	}
+	return natural;
+}
+
+int factorial(int num) {
+	int fac;
+
+	if (num == 0) {
+		fac = 1;
+	} else {
+		fac = num * factorial(num - 1);
+	}
+
+	return fac;
+}
+
+
+
