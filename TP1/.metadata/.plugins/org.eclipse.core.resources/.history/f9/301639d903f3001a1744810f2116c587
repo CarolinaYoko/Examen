@@ -10,8 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "funciones.h"
+#include "misFunciones.h"
 
 int main(void) {
 
