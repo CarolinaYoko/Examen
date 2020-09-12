@@ -145,3 +145,17 @@ gcc -o Calculadora.exe "src\\Calculadora.o" "src\\funciones.o"
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
 gcc -o Calculadora.exe "src\\Calculadora.o" "src\\funciones.o" 
+00:31:35 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\funciones.o" 
+00:36:32 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funciones.o" "..\\src\\funciones.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\funciones.o" 
+00:37:41 **** Incremental Build of configuration Debug for project Calculadora ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Calculadora.o" "..\\src\\Calculadora.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funciones.o" "..\\src\\funciones.c" 
+gcc -o Calculadora.exe "src\\Calculadora.o" "src\\funciones.o" 

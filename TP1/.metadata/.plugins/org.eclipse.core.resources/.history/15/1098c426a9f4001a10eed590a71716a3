@@ -69,7 +69,7 @@ int validarNatural(float num);
  *
  * @param int num, el numero a aplicar el factorial
  *
- * @return double resultado del factorial del numero ingresado
+ * @return double resultado del calculo
  */
 
 double factorial(int num);

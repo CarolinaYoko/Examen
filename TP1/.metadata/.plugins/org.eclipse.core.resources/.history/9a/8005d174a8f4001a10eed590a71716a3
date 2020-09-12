@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "funciones.h"
 
 int main(void) {
@@ -42,14 +43,13 @@ int main(void) {
 		printf("\nIngrese una opcion: ");
 		scanf("%d", &opcion);
 
-		while (!(opcion > 0 && opcion < 6)) {
+		while (!(opcion >0 && opcion < 6)) {
 			printf("\nLa opcion ingresada no es valida. Ingrese una opcion: ");
 			fflush(stdin);
 			scanf("%d", &opcion);
 		}
 
 		switch (opcion) {
-
 		case 1:
 			system("cls");
 			if (flagOp1 == 0) {
@@ -74,8 +74,7 @@ int main(void) {
 
 			if (flagOp2 == 1) {
 				flagOp3 = 1;
-
-				printf("\nOperaciones calculadas. Oprima opcion 4 para acceder a los resultados\n");
+				printf("\nOperaciones calculadas. Oprima opcion 4 para acceder a los resultados\n")
 				suma = sumarNumeros(a, b);
 				resta = restarNumeros(a, b);
 				producto = multiplicarNumeros(a, b);
@@ -88,17 +87,15 @@ int main(void) {
 			} else {
 				printf("\nFalta ingresar el primer operando \n");
 			}
-
 			system("pause");
-
 			break;
 		case 4:
 			system("cls");
 
 			if (flagOp3 == 1) {
 
-				printf("\nA = %.2f \n", a);
-				printf("\nB = %.2f \n", b);
+				printf("\nA = %.2f \n",a);
+				printf("\nB = %.2f \n",b);
 
 				// SUMA
 				printf("\nEl resultado de A+B es = %.2f \n", suma);
@@ -136,11 +133,8 @@ int main(void) {
 			}
 
 			else if (flagOp1 == 0 || flagOp2 == 0) {
-
 				printf("\nPrimero debe ingresar ambos operando antes de informar el resultado \n");
-
 			} else if (flagOp3 == 0) {
-
 				printf("\nPrimero debe calcular las operaciones antes de infromarlos \n");
 
 			}
@@ -161,4 +155,6 @@ int main(void) {
 
 	return EXIT_SUCCESS;
 }
+
+
 
