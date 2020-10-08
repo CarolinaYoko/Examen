@@ -24,7 +24,10 @@ int printEmployees(Employee *list, int len);
 int findEmployeeById(Employee *list, int len, int id);
 int updateEmployee(Employee *list, int len);
 int removeEmployee(Employee *list, int len);
-
+int sortEmployees(Employee *list, int len, int order);
+int acumularSalario(Employee *list, int len, float *acumulador);
+int calcularPromedioSalario(Employee *list, int len, float* promedio);
+int cuentaSuperaSalarioPromedio(Employee *list, int len, float promedio, int* contador);
 
 
 #endif /* ARRAYEMPLOYEES_H_ */

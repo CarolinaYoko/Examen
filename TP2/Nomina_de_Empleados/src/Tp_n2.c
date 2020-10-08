@@ -22,7 +22,6 @@
 #define UP 1
 #define DOWN 0
 
-int sortEmployees(Employee *list, int len, int order);
 
 int main(void) {
 
@@ -38,6 +37,9 @@ int main(void) {
 	int resultadoSubMenuOp4;
 	int order;
 	int contadorId = 0;
+	float acumuladorSalario=0;
+	float promedioSalario;
+	int contadorEmpleado=0;
 
 	initEmployees(arrayEmployees, TAM);
 
@@ -82,14 +84,22 @@ int main(void) {
 					switch (subopcion) {
 					case 1:
 						resultadoSubMenuOp4 =
-								utn_getNumeroInt(&order,"Ingrese el orden: ascendente(1) o desdendente (0) \n\nIngrese una opcion: ","El numero no es valido. Reingrese \n", 0,	1, 2);
+								utn_getNumeroInt(&order,
+										"Ingrese el orden: ascendente(1) o desdendente (0) \n\nIngrese una opcion: ",
+										"El numero no es valido. Reingrese \n",
+										0, 1, 2);
 						if (resultadoSubMenuOp4 == 0) {
-							sortEmployees(arrayEmployees,TAM, order);
+							sortEmployees(arrayEmployees, TAM, order);
 							printEmployees(arrayEmployees, TAM);
 						}
 						break;
 					case 2:
-
+						acumularSalario(arrayEmployees, TAM, &acumuladorSalario);
+						calcularPromedioSalario(arrayEmployees, TAM, &promedioSalario);
+						cuentaSuperaSalarioPromedio(arrayEmployees, TAM, promedioSalario, &contadorEmpleado);
+						printf("El total de salario de empleados es: %.2f \n", acumuladorSalario);
+						printf("El salario promedio es: %.2f \n", promedioSalario);
+						printf("La cantidad de empleados que supera el sueldo promedio es: %d \n", contadorEmpleado);
 						break;
 					}
 				}
@@ -109,53 +119,3 @@ int main(void) {
 	return EXIT_SUCCESS;
 }
 
-int sortEmployees(Employee *list, int len, int order) {
-	int retorno = -1;
-	int i;
-	int j;
-	Employee aux;
-
-	if (list != NULL && len > 0) {
-
-		switch (order) {
-		case 0: //Orden ascendente
-			for (i = 0; i < len - 1; i++) {
-				for (j = i + 1; j < len; j++) {
-
-					if (strcmp(list[i].lastName, list[j].lastName) < 0) {
-						aux = list[i];
-						list[i] = list[j];
-						list[j] = aux;
-					} else if (strcmp(list[i].lastName, list[j].lastName) == 0
-							&& list[i].sector < list[j].sector) {
-						aux = list[i];
-						list[i] = list[j];
-						list[j] = aux;
-					}
-				}
-			}
-			retorno = 0;
-			break;
-		case 1: //Orden descendente
-			for (i = 0; i < len - 1; i++) {
-				for (j = i + 1; j < len; j++) {
-
-					if (strcmp(list[i].lastName, list[j].lastName) > 0) {
-						aux = list[i];
-						list[i] = list[j];
-						list[j] = aux;
-					} else if (strcmp(list[i].lastName, list[j].lastName) == 0
-							&& list[i].sector > list[j].sector) {
-						aux = list[i];
-						list[i] = list[j];
-						list[j] = aux;
-					}
-				}
-			}
-			retorno = 0;
-			break;
-		}
-	}
-
-	return retorno;
-}

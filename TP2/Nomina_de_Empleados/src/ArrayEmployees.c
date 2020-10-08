@@ -131,25 +131,25 @@ int updateEmployee(Employee *list, int len) {
 
 		utn_getNumeroInt(&menu,
 				"Ingrese el campo a modificar: \n\n1-Nombre \n2-Apellido \n3-Salario \n4-Sector \n",
-				"La opcion no es valida. Reingrese", 1, 4, 2);
+				"La opcion no es valida. Reingrese\n", 1, 4, 2);
 
 		switch (menu) {
 		case 1:
 			utn_getTexto(list[indice].name, "Ingrese nombre: ",
-					"El nombre ingresado no es valido. Reingrese", 1, LEN, 2);
+					"El nombre ingresado no es valido. Reingrese\n", 1, LEN, 2);
 			break;
 		case 2:
 			utn_getTexto(list[indice].lastName, "Ingrese apellido: ",
-					"El apellido ingresado no es valido. Reingrese", 1, LEN, 2);
+					"El apellido ingresado no es valido. Reingrese\n", 1, LEN, 2);
 			break;
 		case 3:
 			utn_getNumeroFlotante(&list[indice].salary,
 					"Ingrese salario (u$s): ",
-					"El numero ingresado no es valido. Reingrese", 0, 10000, 2);
+					"El numero ingresado no es valido. Reingrese\n", 0, 10000, 2);
 			break;
 		case 4:
 			utn_getNumeroInt(&list[indice].sector, "Ingrese sector: ",
-					"El numero ingresado no es valido. Reingrese", 1, 50, 2);
+					"El numero ingresado no es valido. Reingrese\n", 1, 50, 2);
 			break;
 		}
 		retorno = 0;
@@ -170,6 +170,113 @@ int removeEmployee(Employee *list, int len) {
 	if (list != NULL && len > 0 && indice > 0) {
 		list[indice].isEmpty = TRUE;
 		retorno = 0;
+	}
+	return retorno;
+}
+
+int sortEmployees(Employee *list, int len, int order) {
+	int retorno = -1;
+	int i;
+	int j;
+	Employee aux;
+
+	if (list != NULL && len > 0) {
+
+		switch (order) {
+		case 0: //Orden ascendente
+			for (i = 0; i < len - 1; i++) {
+				for (j = i + 1; j < len; j++) {
+
+					if (strcmp(list[i].lastName, list[j].lastName) < 0) {
+						aux = list[i];
+						list[i] = list[j];
+						list[j] = aux;
+					} else if (strcmp(list[i].lastName, list[j].lastName) == 0
+							&& list[i].sector < list[j].sector) {
+						aux = list[i];
+						list[i] = list[j];
+						list[j] = aux;
+					}
+				}
+			}
+			retorno = 0;
+			break;
+		case 1: //Orden descendente
+			for (i = 0; i < len - 1; i++) {
+				for (j = i + 1; j < len; j++) {
+
+					if (strcmp(list[i].lastName, list[j].lastName) > 0) {
+						aux = list[i];
+						list[i] = list[j];
+						list[j] = aux;
+					} else if (strcmp(list[i].lastName, list[j].lastName) == 0
+							&& list[i].sector > list[j].sector) {
+						aux = list[i];
+						list[i] = list[j];
+						list[j] = aux;
+					}
+				}
+			}
+			retorno = 0;
+			break;
+		}
+	}
+
+	return retorno;
+}
+
+int acumularSalario(Employee *list, int len, float *acumulador) {
+	int i;
+	int retorno = -1;
+
+	if (list != NULL && len > 0) {
+		for (i = 0; i < len; i++) {
+			if (list[i].isEmpty == FALSE) {
+				*acumulador += list[i].salary;
+			}
+		}
+		retorno = 0;
+	}
+	return retorno;
+}
+
+int calcularPromedioSalario(Employee *list, int len, float* promedio) {
+
+	float acumulador = 0;
+	int i;
+	int retorno = -1;
+	int contador=0;
+
+	if (list != NULL && len > 0) {
+		acumularSalario(list, len, &acumulador);
+
+		for (i = 0; i < len; i++) {
+			if(list[i].isEmpty == FALSE){
+			contador++;
+			}
+		}
+		if(contador ==0){
+			retorno = -1;
+		}
+		else{
+		*promedio = acumulador / contador;
+		retorno = 0;
+		}
+	}
+	return retorno;
+}
+
+int cuentaSuperaSalarioPromedio(Employee *list, int len, float promedio, int *contador){
+	int retorno = -1;
+	int i;
+
+	if (list != NULL && len > 0){
+		for(i=0; i<len; i++){
+			if(list[i].salary >= promedio){
+				(*contador)++;
+			}
+		}
+		retorno=0;
 	}
 	return retorno;
 }
