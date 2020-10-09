@@ -93,6 +93,7 @@ int main(void) {
 					printEmployees(arrayEmployees, TAM);
 					if (removeEmployee(arrayEmployees, TAM) == 0) {
 						printf("\nBaja exitosa \n\n");
+						system("pause");
 					} else {
 						printf("\nError. Reintente\n");
 					}
@@ -117,8 +118,8 @@ int main(void) {
 						case 1:
 							resultadoSubMenuOp4 =
 									utn_getNumeroInt(&order,
-											"Ingrese el orden: ascendente(1) o desdendente (0) \n\nIngrese una opcion: ",
-											"El numero no es valido. Reingrese \n",
+											"\nIngrese el orden: ascendente(1) o desdendente (0) \n\nIngrese una opcion: ",
+											"\nEl numero no es valido. Reingrese \n",
 											0, 1, 2);
 							if (resultadoSubMenuOp4 == 0) {
 								sortEmployees(arrayEmployees, TAM, order);

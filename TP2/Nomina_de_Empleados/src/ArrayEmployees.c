@@ -79,7 +79,7 @@ int printEmployees(Employee *list, int len) {
 
 	if (list != NULL && len > 0) {
 
-		printf("\t| %5s | %8s | %8s | %8s | %5s |\n", "ID", "Nombre",
+		printf("\n\t| %5s | %8s | %8s | %8s | %5s |\n", "ID", "Nombre",
 				"Apellido", "Salario", "Sector");
 
 		for (i = 0; i < len; i++) {
@@ -104,7 +104,7 @@ int printEmployee(Employee *list, int len, int id) {
 	int indice;
 	if (list != NULL && len > 0) {
 		indice = findEmployeeById(list, len, id);
-		printf("\t| %5s | %8s | %8s | %8s | %5s |\n", "ID", "Nombre",
+		printf("\n\t| %5s | %8s | %8s | %8s | %5s |\n", "ID", "Nombre",
 				"Apellido", "Salario", "Sector");
 
 		printf("\t| %5d | %8s | %8s | %8.2f | %6d |\n", list[indice].id,
@@ -148,7 +148,7 @@ int updateEmployee(Employee *list, int len) {
 	if (list != NULL && len > 0 && resultado == 0 && indice != -1) {
 
 		utn_getNumeroInt(&menu,
-				"Ingrese el campo a modificar: \n\n1-Nombre \n2-Apellido \n3-Salario \n4-Sector \n",
+				"\nIngrese el campo a modificar: \n\n1-Nombre \n2-Apellido \n3-Salario \n4-Sector \n\nIngrese una pcion: ",
 				"La opcion no es valida. Reingrese\n", 1, 4, 2);
 
 		switch (menu) {
@@ -184,7 +184,7 @@ int removeEmployee(Employee *list, int len) {
 	int indice;
 
 	utn_getNumeroInt(&id, "\nIngrese el ID a eliminar: ",
-			"El ID no es valido. Reingrese", 1, 4096, 2);
+			"\nEl ID no es valido. Reingrese", 1, 4096, 2);
 	indice = findEmployeeById(list, len, id);
 
 	if (list != NULL && len > 0 && indice > 0) {
