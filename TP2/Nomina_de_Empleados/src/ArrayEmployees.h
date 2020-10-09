@@ -22,7 +22,7 @@ struct {
  *
  * @param list puntero a estructura
  * @param len tamaño del array
- * @return int Retorna (-1) si hay Error [tamaño invalido o puntero a NULL] - 0 si OK
+ * @return int Retorna (-1) si hay Error [tamaño invalido o puntero a NULL ] - 0 si OK
  */
 int initEmployees(Employee *list, int len);
 

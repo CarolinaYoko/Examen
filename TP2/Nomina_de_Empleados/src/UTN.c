@@ -61,6 +61,9 @@ static int esTexto(char *cadena) {
 	int i;
 	int retorno = 1;
 
+	if (isspace(cadena[0])) {
+		retorno = 0;
+	}
 	for (i = 0; cadena[i] != '\0'; i++) {
 
 		if (!(isspace(cadena[i]) || isalpha(cadena[i]))) {
@@ -137,7 +140,8 @@ int utn_getNumeroInt(int *pResultado, char *mensaje, char *mensajeError,
 	return retorno;
 }
 
-int utn_getCaracter(char *pResultado, char *mensaje, char *mensajeError, char minimo, char maximo, int reintentos) {
+int utn_getCaracter(char *pResultado, char *mensaje, char *mensajeError,
+		char minimo, char maximo, int reintentos) {
 
 	char buffer; //espacios de intercambio con el usuario
 	int retorno = -1;
@@ -146,7 +150,7 @@ int utn_getCaracter(char *pResultado, char *mensaje, char *mensajeError, char mi
 			&& minimo <= maximo && reintentos >= 0) {
 		do {
 			printf("%s", mensaje);
-			scanf("%c",&buffer);
+			scanf("%c", &buffer);
 			if (buffer >= minimo && buffer <= maximo) {
 				*pResultado = buffer;
 				retorno = 0;
@@ -162,7 +166,8 @@ int utn_getCaracter(char *pResultado, char *mensaje, char *mensajeError, char mi
 	return retorno;
 }
 
-int utn_getNumeroFlotante(float *pResultado, char *mensaje, char *mensajeError, float minimo, float maximo, int reintentos) {
+int utn_getNumeroFlotante(float *pResultado, char *mensaje, char *mensajeError,
+		float minimo, float maximo, int reintentos) {
 
 	float buffer; //espacios de intercambio con el usuario
 	int retorno = -1;
@@ -186,7 +191,8 @@ int utn_getNumeroFlotante(float *pResultado, char *mensaje, char *mensajeError, 
 	return retorno;
 }
 
-int utn_getTexto(char *pResultado, char *mensaje, char *mensajeError,int minimo, int maximo, int reintentos) {
+int utn_getTexto(char *pResultado, char *mensaje, char *mensajeError,
+		int minimo, int maximo, int reintentos) {
 	char buffer[4096]; //espacios de intercambio con el usuario
 	int retorno = -1;
 
@@ -195,7 +201,8 @@ int utn_getTexto(char *pResultado, char *mensaje, char *mensajeError,int minimo,
 				&& minimo <= maximo && reintentos >= 0) {
 
 			printf("%s", mensaje);
-			if (getString(buffer) == 0 && strlen(buffer) >= minimo && strlen(buffer) <= maximo) {
+			if (getString(buffer) == 0 && strlen(buffer) >= minimo
+					&& strlen(buffer) <= maximo) {
 
 				strcpy(pResultado, buffer);
 				retorno = 0;
@@ -210,5 +217,4 @@ int utn_getTexto(char *pResultado, char *mensaje, char *mensajeError,int minimo,
 
 	return retorno;
 }
-
 

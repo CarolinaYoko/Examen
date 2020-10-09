@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,15 +29,25 @@ int auxiliarAdd(Employee *Aux) {
 
 	if (Aux != NULL) {
 
-		utn_getTexto(Aux->name, "Ingrese nombre: ",
-				"El nombre ingresado no es valido. Reingrese", 1, LEN, 2);
-		utn_getTexto(Aux->lastName, "Ingrese apellido: ",
-				"El apellido ingresado no es valido. Reingrese", 1, LEN, 2);
-		utn_getNumeroFlotante(&Aux->salary, "Ingrese salario (u$s): ",
-				"El numero ingresado no es valido. Reingrese", 0, 10000, 2);
-		utn_getNumeroInt(&Aux->sector, "Ingrese sector: ",
-				"El numero ingresado no es valido. Reingrese", 1, 50, 2);
-		retorno = 0;
+		if (utn_getTexto(Aux->name, "Ingrese nombre: ",
+				"El nombre ingresado no es valido. Reingrese", 1, LEN, 2) == 0
+				&& utn_getTexto(Aux->lastName, "Ingrese apellido: ",
+						"El apellido ingresado no es valido. Reingrese", 1, LEN,
+						2) == 0
+				&& utn_getNumeroFlotante(&Aux->salary,
+						"Ingrese salario (u$s): ",
+						"El numero ingresado no es valido. Reingrese", 0, 10000,
+						2) == 0
+				&& utn_getNumeroInt(&Aux->sector, "Ingrese sector: ",
+						"El numero ingresado no es valido. Reingrese", 1, 50, 2)
+						== 0) {
+			retorno = 0;
+		} else {
+			printf("Error en la carga. Reintente \n");
+			retorno = -1;
+			system("pause");
+		}
+
 	}
 	return retorno;
 }
@@ -148,32 +157,51 @@ int updateEmployee(Employee *list, int len) {
 	if (list != NULL && len > 0 && resultado == 0 && indice != -1) {
 
 		utn_getNumeroInt(&menu,
-				"\nIngrese el campo a modificar: \n\n1-Nombre \n2-Apellido \n3-Salario \n4-Sector \n\nIngrese una pcion: ",
+				"\nIngrese el campo a modificar: \n\n1-Nombre \n2-Apellido \n3-Salario \n4-Sector \n\nIngrese una opcion: ",
 				"La opcion no es valida. Reingrese\n", 1, 4, 2);
 
 		switch (menu) {
 		case 1:
-			utn_getTexto(list[indice].name, "Ingrese nombre: ",
-					"El nombre ingresado no es valido. Reingrese\n", 1, LEN, 2);
+			if (utn_getTexto(list[indice].name, "Ingrese nombre: ",
+					"El nombre ingresado no es valido. Reingrese\n", 1, LEN, 2)
+					== 0) {
+				retorno = 0;
+			} else {
+				retorno = -1;
+			}
 			break;
 		case 2:
-			utn_getTexto(list[indice].lastName, "Ingrese apellido: ",
-					"El apellido ingresado no es valido. Reingrese\n", 1, LEN, 2);
+			if (utn_getTexto(list[indice].lastName, "Ingrese apellido: ",
+					"El apellido ingresado no es valido. Reingrese\n", 1, LEN,
+					2) == 0) {
+				retorno = 0;
+			} else {
+				retorno = -1;
+			}
 			break;
 		case 3:
-			utn_getNumeroFlotante(&list[indice].salary,
+			if (utn_getNumeroFlotante(&list[indice].salary,
 					"Ingrese salario (u$s): ",
-					"El numero ingresado no es valido. Reingrese\n", 0, 10000, 2);
+					"El numero ingresado no es valido. Reingrese\n", 0, 10000,
+					2) == 0) {
+				retorno = 0;
+			} else {
+				retorno = -1;
+			}
 			break;
+
 		case 4:
-			utn_getNumeroInt(&list[indice].sector, "Ingrese sector: ",
-					"El numero ingresado no es valido. Reingrese\n", 1, 50, 2);
+			if (utn_getNumeroInt(&list[indice].sector, "Ingrese sector: ",
+					"El numero ingresado no es valido. Reingrese\n", 1, 50, 2)
+					== 0) {
+				retorno = 0;
+			} else {
+				retorno = -1;
+			}
 			break;
 		}
-
 		printEmployee(list, len, id);
 		retorno = 0;
-
 	}
 	return retorno;
 }
@@ -260,43 +288,43 @@ int acumularSalario(Employee *list, int len, float *acumulador) {
 	return retorno;
 }
 
-int calcularPromedioSalario(Employee *list, int len, float* promedio) {
+int calcularPromedioSalario(Employee *list, int len, float *promedio) {
 
 	float acumulador = 0;
 	int i;
 	int retorno = -1;
-	int contador=0;
+	int contador = 0;
 
 	if (list != NULL && len > 0) {
 		acumularSalario(list, len, &acumulador);
 
 		for (i = 0; i < len; i++) {
-			if(list[i].isEmpty == FALSE){
-			contador++;
+			if (list[i].isEmpty == FALSE) {
+				contador++;
 			}
 		}
-		if(contador ==0){
+		if (contador == 0) {
 			retorno = -1;
-		}
-		else{
-		*promedio = acumulador / contador;
-		retorno = 0;
+		} else {
+			*promedio = acumulador / contador;
+			retorno = 0;
 		}
 	}
 	return retorno;
 }
 
-int cuentaSuperaSalarioPromedio(Employee *list, int len, float promedio, int *contador){
+int cuentaSuperaSalarioPromedio(Employee *list, int len, float promedio,
+		int *contador) {
 	int retorno = -1;
 	int i;
 
-	if (list != NULL && len > 0){
-		for(i=0; i<len; i++){
-			if(list[i].salary >= promedio){
+	if (list != NULL && len > 0) {
+		for (i = 0; i < len; i++) {
+			if (list[i].salary > promedio) {
 				(*contador)++;
 			}
 		}
-		retorno=0;
+		retorno = 0;
 	}
 	return retorno;
 }

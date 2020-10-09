@@ -60,10 +60,8 @@ int main(void) {
 			case 1:
 				printf("----ALTA EMPLEADO----\n\n");
 				contadorId++;
-				auxiliarAdd(&Aux);
-				system("cls");
-				if (addEmployee(arrayEmployees, TAM, contadorId, Aux.name,
-						Aux.lastName, Aux.salary, Aux.sector) == 0) {
+				if (auxiliarAdd(&Aux)==0 && addEmployee(arrayEmployees, TAM, contadorId, Aux.name,
+						Aux.lastName, Aux.salary, Aux.sector)==0) {
 					printf("\nAlta exitosa \n\n");
 				} else {
 					printf("\nError. Reintente\n");
