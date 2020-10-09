@@ -98,6 +98,24 @@ int printEmployees(Employee *list, int len) {
 	return retorno;
 }
 
+int printEmployee(Employee *list, int len, int id) {
+
+	int retorno = -1;
+	int indice;
+	if (list != NULL && len > 0) {
+		indice = findEmployeeById(list, len, id);
+		printf("\t| %5s | %8s | %8s | %8s | %5s |\n", "ID", "Nombre",
+				"Apellido", "Salario", "Sector");
+
+		printf("\t| %5d | %8s | %8s | %8.2f | %6d |\n", list[indice].id,
+				list[indice].name, list[indice].lastName, list[indice].salary,
+				list[indice].sector);
+
+		retorno = 0;
+	}
+	return retorno;
+}
+
 int findEmployeeById(Employee *list, int len, int id) {
 	int retorno = -1;
 	int i;
@@ -152,6 +170,8 @@ int updateEmployee(Employee *list, int len) {
 					"El numero ingresado no es valido. Reingrese\n", 1, 50, 2);
 			break;
 		}
+
+		printEmployee(list, len, id);
 		retorno = 0;
 
 	}
@@ -280,3 +300,19 @@ int cuentaSuperaSalarioPromedio(Employee *list, int len, float promedio, int *co
 	}
 	return retorno;
 }
+
+int hayAltasEmpleados(Employee *list, int len) {
+	int i;
+	int retorno = 0;
+
+	if (list != NULL && len > 0) {
+		for (i = 0; i < len; i++) {
+			if (list[i].isEmpty == FALSE) {
+				retorno = 1;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+

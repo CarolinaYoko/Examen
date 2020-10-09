@@ -28,6 +28,8 @@ int sortEmployees(Employee *list, int len, int order);
 int acumularSalario(Employee *list, int len, float *acumulador);
 int calcularPromedioSalario(Employee *list, int len, float* promedio);
 int cuentaSuperaSalarioPromedio(Employee *list, int len, float promedio, int* contador);
+int hayAltasEmpleados(Employee *list, int len);
+int printEmployee(Employee *list, int len, int id);
 
 
 #endif /* ARRAYEMPLOYEES_H_ */
