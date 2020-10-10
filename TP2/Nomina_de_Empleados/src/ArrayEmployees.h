@@ -1,7 +1,7 @@
 #ifndef ARRAYEMPLOYEES_H_
 #define ARRAYEMPLOYEES_H_
 
-#define TAM 5
+#define TAM 1000
 #define LEN 51
 #define TRUE 0
 #define FALSE 1
