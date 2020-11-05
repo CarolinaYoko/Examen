@@ -24,7 +24,7 @@ int main() {
 
 	int option = 0;
 	int respuestaMenu;
-	int idEmpleado = 0;
+	int idEmpleado;
 
 	LinkedList *listaEmpleados = ll_newLinkedList();
 	do {
@@ -48,10 +48,10 @@ int main() {
 
 			switch (option) {
 			case 1:
-				controller_loadFromText("data.csv", listaEmpleados);
+				controller_loadFromText("data.csv", listaEmpleados, &idEmpleado);
 				break;
 			case 2:
-				controller_loadFromBinary("data.bin", listaEmpleados);
+				controller_loadFromBinary("data.bin", listaEmpleados, &idEmpleado);
 				break;
 			case 3:
 				controller_addEmployee(listaEmpleados, &idEmpleado);

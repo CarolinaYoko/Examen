@@ -6,9 +6,9 @@
 #include "UTN.h"
 #include "parser.h"
 
-static int findEmployeeById(LinkedList *pArrayListEmployee, Employee** this, int id);
+static int findEmployeeById(LinkedList *pArrayListEmployee, Employee **this,
+		int id);
 static int findIndexById(LinkedList *pArrayListEmployee, int *index, int id);
-
 
 /**
  * @brief
@@ -52,7 +52,8 @@ static int findIndexById(LinkedList *pArrayListEmployee, int *index, int id) {
  * @param id
  * @return
  */
-static int findEmployeeById(LinkedList *pArrayListEmployee, Employee **this, int id) {
+static int findEmployeeById(LinkedList *pArrayListEmployee, Employee **this,
+		int id) {
 
 	int auxIndex;
 	int retorno = -1;
@@ -69,12 +70,13 @@ static int findEmployeeById(LinkedList *pArrayListEmployee, Employee **this, int
 	return retorno;
 }
 
-
-int controller_loadFromText(char *path, LinkedList *pArrayListEmployee) {
+int controller_loadFromText(char *path, LinkedList *pArrayListEmployee,
+		int *maxId) {
 
 	int retorno = -1;
 	FILE *fp;
 	int len;
+	int bufferId;
 
 	if (pArrayListEmployee != NULL && path != NULL) {
 		len = ll_len(pArrayListEmployee);
@@ -83,7 +85,11 @@ int controller_loadFromText(char *path, LinkedList *pArrayListEmployee) {
 			fp = fopen("data.csv", "r");
 			if (fp != NULL) {
 
-				if (parser_EmployeeFromText(fp, pArrayListEmployee) == 0) {
+				bufferId = parser_EmployeeFromText(fp, pArrayListEmployee);
+
+				if (bufferId > 0) {
+
+					*maxId = bufferId;
 					printf("Carga exitosa \n");
 					retorno = 0;
 				}
@@ -97,10 +103,11 @@ int controller_loadFromText(char *path, LinkedList *pArrayListEmployee) {
 	return retorno;
 }
 
-
-int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee) {
+int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee,
+		int *maxId) {
 
 	FILE *fp;
+	int bufferId;
 	int retorno = -1;
 	int len;
 
@@ -112,7 +119,9 @@ int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee) {
 
 			if (fp != NULL) {
 
-			if (parser_EmployeeFromBinary(fp, pArrayListEmployee) == 0) {
+				bufferId = parser_EmployeeFromBinary(fp, pArrayListEmployee);
+				if (bufferId > 0) {
+					*maxId = bufferId;
 					printf("Carga exitosa \n");
 					retorno = 0;
 				}
@@ -126,7 +135,6 @@ int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee) {
 	system("pause");
 	return retorno;
 }
-
 
 int controller_ListEmployee(LinkedList *pArrayListEmployee) {
 	int retorno = -1;
@@ -307,7 +315,6 @@ int controller_removeEmployee(LinkedList *pArrayListEmployee) {
 	system("pause");
 	return retorno;
 }
-
 
 int controller_sortEmployee(LinkedList *pArrayListEmployee) {
 

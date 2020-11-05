@@ -4,6 +4,9 @@
 #include <string.h>
 #include "Employee.h"
 
+static int esNumerica(char *cadena);
+static int esNombre(char *cadena);
+
 static int esNumerica(char *cadena) {
 	int retorno = 1;
 	int i = 0;
@@ -30,7 +33,7 @@ static int esNombre(char *cadena) {
 	}
 	for (i = 0; cadena[i] != '\0'; i++) {
 
-		if (!(isspace(cadena[i]) || isalpha(cadena[i]) || cadena[i]=='-')) {
+		if (!(isspace(cadena[i]) || isalpha(cadena[i]) || cadena[i] == '-')) {
 			retorno = 0;
 			break;
 		}
@@ -61,7 +64,7 @@ Employee* employee_new() {
 Employee* employee_newParametros(char *idStr, char *nombreStr,
 		char *horasTrabajadasStr, char *salarioStr) {
 	Employee *p;
-	void *retorno;
+	Employee *retorno;
 
 	p = (Employee*) malloc(sizeof(Employee));
 
@@ -133,6 +136,7 @@ int employee_setNombre(Employee *this, char *nombre) {
 	if (this != NULL && nombre != NULL) {
 
 		if (esNombre(nombre)) {
+
 			strncpy(this->nombre, nombre, 128);
 			retorno = 0;
 		}
@@ -287,13 +291,11 @@ int employee_compareByNameAndId(void *Empleado1, void *Empleado2) {
 
 		retorno = strcmp(auxEmpleado1->nombre, auxEmpleado2->nombre);
 
-		if(retorno==0){
+		if (retorno == 0) {
 			retorno = employee_compareByID(Empleado1, Empleado2);
 		}
 
 	}
 	return retorno;
 }
-
-
 

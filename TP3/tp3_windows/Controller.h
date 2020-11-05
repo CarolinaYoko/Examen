@@ -11,7 +11,7 @@
  * \return int
  *
  */
-int controller_loadFromText(char* path , LinkedList* pArrayListEmployee);
+int controller_loadFromText(char *path, LinkedList *pArrayListEmployee, int* maxId);
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
  *
@@ -20,7 +20,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee);
  * \return int
  *
  */
-int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee);
+int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee, int* maxId);
 
 /** \brief Alta de empleados
  *
