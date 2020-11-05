@@ -32,7 +32,7 @@ int main(void) {
 	int opcion;
 	int subopcion;
 	int respuestaMenu;
-	char respuestaContinuar = 's';
+	char respuestaContinuar = 'n';
 	int respuestaSubMenu;
 	int resultadoSubMenuOp4;
 	int order;
@@ -162,7 +162,7 @@ int main(void) {
 		} else {
 			printf("Se terminaron los intentos. Reinicie");
 		}
-	} while (respuestaContinuar == 's');
+	} while (respuestaContinuar == 'n');
 
 	return EXIT_SUCCESS;
 }
