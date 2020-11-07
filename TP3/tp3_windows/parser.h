@@ -2,20 +2,20 @@
 #define PARSER_H_
 
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
+/** \brief Realiza la conversion de  los datos de los empleados desde el archivo data.csv (modo texto) y los guarda en una estructura
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna el Id maximo, en caso de error(-1)
  *
  */
 int parser_EmployeeFromText(FILE *pFile, LinkedList *pArrayListEmployee);
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
+/** \brief Realiza la conversion de  los datos de los empleados desde el archivo data.csv (modo binario) y los guarda en una estructura
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna el Id maximo, en caso de error(-1)
  *
  */
 int parser_EmployeeFromBinary(FILE *pFile, LinkedList *pArrayListEmployee);

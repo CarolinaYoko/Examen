@@ -8,7 +8,8 @@
  *
  * \param path char* ruta del archivo .csv
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \param maxId*
+ * \return int En caso de exito retorna 0 , en caso de error(-1)
  *
  */
 int controller_loadFromText(char *path, LinkedList *pArrayListEmployee, int* maxId);
@@ -17,7 +18,7 @@ int controller_loadFromText(char *path, LinkedList *pArrayListEmployee, int* max
  *
  * \param path char* ruta del archivo .bin
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee, int* maxId);
@@ -26,7 +27,7 @@ int controller_loadFromBinary(char *path, LinkedList *pArrayListEmployee, int* m
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee, int *idEmpleado);
@@ -35,7 +36,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee, int *idEmpleado);
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee);
@@ -44,7 +45,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee);
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee);
@@ -53,7 +54,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee);
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee);
@@ -62,7 +63,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee);
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
- * \return int
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee);
@@ -71,7 +72,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee);
  *
  * \param path char* ruta del archivo .csv
  * \param pArrayListEmployee LinkedList*
- * \return int  En caso de exito retorna el, en caso de error(-1)
+ * \return int  En caso de exito retorna 0, en caso de error(-1)
  *
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee);
@@ -80,8 +81,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee);
  *
  * \param path char* ruta del archivo .bin
  * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * \return int En caso de exito retorna 0, en caso de error(-1)
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
 

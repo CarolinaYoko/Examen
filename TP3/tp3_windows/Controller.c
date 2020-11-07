@@ -16,7 +16,7 @@ static int findIndexById(LinkedList *pArrayListEmployee, int *index, int id);
  * @param pArrayListEmployee
  * @param index
  * @param id
- * @return
+ * @return En caso de exito retorna 0, en caso de error(-1)
  */
 static int findIndexById(LinkedList *pArrayListEmployee, int *index, int id) {
 	int len;
@@ -50,7 +50,7 @@ static int findIndexById(LinkedList *pArrayListEmployee, int *index, int id) {
  * @param pArrayListEmployee
  * @param this
  * @param id
- * @return
+ * @return En caso de exito retorna 0, en caso de error(-1)
  */
 static int findEmployeeById(LinkedList *pArrayListEmployee, Employee **this,
 		int id) {
@@ -323,7 +323,7 @@ int controller_sortEmployee(LinkedList *pArrayListEmployee) {
 	if (pArrayListEmployee != NULL) {
 		len = ll_len(pArrayListEmployee);
 		if (len != 0) {
-			ll_sort(pArrayListEmployee, employee_compareByNameAndId, 1);
+			ll_sort(pArrayListEmployee, employee_compareByNameAndId, 0);
 			controller_ListEmployee(pArrayListEmployee);
 			retorno = 0;
 		} else {
